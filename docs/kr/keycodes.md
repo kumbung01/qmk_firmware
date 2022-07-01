@@ -1,17 +1,15 @@
-# Keycodes Overview
+# 키코드 개요
 
-When defining a [keymap](keymap.md) each key needs a valid key definition. This page documents the symbols that correspond to keycodes that are available to you in QMK.
-
-This is a reference only. Each group of keys links to the page documenting their functionality in more detail.
-
+[키맵](keymap.md)을 정의할 때, 각 키는 유효한 키값을 필요로 합니다. 이 페이지는 QMK에서 사용할 수 있는 keycode에 해당하는 심볼을 설명합니다.
+이곳에는 키값만 표시하고 있습니다. 각 키 그룹은 기능에 대한 자세한 설명을 적어놓은 링크로 연결되어 있습니다.
 ## Basic Keycodes :id=basic-keycodes
 
-See also: [Basic Keycodes](keycodes_basic.md)
+보충 설명: [Basic Keycodes](keycodes_basic.md)
 
 |Key                     |Aliases                        |Description                            |Windows      |macOS        |Linux<sup>1</sup>|
 |------------------------|-------------------------------|---------------------------------------|-------------|-------------|-----------------|
-|`KC_NO`                 |`XXXXXXX`                      |Ignore this key (NOOP)                 |*N/A*        |*N/A*        |*N/A*            |
-|`KC_TRANSPARENT`        |`KC_TRNS`, `_______`           |Use the next lowest non-transparent key|*N/A*        |*N/A*        |*N/A*            |
+|`KC_NO`                 |`XXXXXXX`                      |무시되는 키 (작동하지 않음)               |*N/A*        |*N/A*        |*N/A*            |
+|`KC_TRANSPARENT`        |`KC_TRNS`, `_______`           |다음으로 낮은 레이어의 투명 키를 사용       |*N/A*        |*N/A*        |*N/A*            |
 |`KC_A`                  |                               |`a` and `A`                            |✔            |✔            |✔                |
 |`KC_B`                  |                               |`b` and `B`                            |✔            |✔            |✔                |
 |`KC_C`                  |                               |`c` and `C`                            |✔            |✔            |✔                |
@@ -79,18 +77,18 @@ See also: [Basic Keycodes](keycodes_basic.md)
 |`KC_F11`                |                               |F11                                    |✔            |✔            |✔                |
 |`KC_F12`                |                               |F12                                    |✔            |✔            |✔                |
 |`KC_PRINT_SCREEN`       |`KC_PSCR`                      |Print Screen                           |✔            |✔<sup>2</sup>|✔                |
-|`KC_SCROLL_LOCK`        |`KC_SCRL`, `KC_BRMD`           |Scroll Lock, Brightness Down (macOS)   |✔            |✔<sup>2</sup>|✔                |
-|`KC_PAUSE`              |`KC_PAUS`, `KC_BRK`, `KC_BRMU` |Pause, Brightness Up (macOS)           |✔            |✔<sup>2</sup>|✔                |
+|`KC_SCROLL_LOCK`        |`KC_SCRL`, `KC_BRMD`           |Scroll Lock, 밝기 낮춤 (macOS)          |✔            |✔<sup>2</sup>|✔                |
+|`KC_PAUSE`              |`KC_PAUS`, `KC_BRK`, `KC_BRMU` |Pause, 밝기 올림 (macOS)                |✔            |✔<sup>2</sup>|✔                |
 |`KC_INSERT`             |`KC_INS`                       |Insert                                 |✔            |             |✔                |
 |`KC_HOME`               |                               |Home                                   |✔            |✔            |✔                |
 |`KC_PAGE_UP`            |`KC_PGUP`                      |Page Up                                |✔            |✔            |✔                |
 |`KC_DELETE`             |`KC_DEL`                       |Forward Delete                         |✔            |✔            |✔                |
 |`KC_END`                |                               |End                                    |✔            |✔            |✔                |
 |`KC_PAGE_DOWN`          |`KC_PGDN`                      |Page Down                              |✔            |✔            |✔                |
-|`KC_RIGHT`              |`KC_RGHT`                      |Right Arrow                            |✔            |✔            |✔                |
-|`KC_LEFT`               |                               |Left Arrow                             |✔            |✔            |✔                |
-|`KC_DOWN`               |                               |Down Arrow                             |✔            |✔            |✔                |
-|`KC_UP`                 |                               |Up Arrow                               |✔            |✔            |✔                |
+|`KC_RIGHT`              |`KC_RGHT`                      |오른쪽 화살표                            |✔            |✔            |✔                |
+|`KC_LEFT`               |                               |왼쪽 화살표                              |✔            |✔            |✔                |
+|`KC_DOWN`               |                               |아래 화살표                              |✔            |✔            |✔                |
+|`KC_UP`                 |                               |위 화살표                                |✔            |✔            |✔                |
 |`KC_NUM_LOCK`           |`KC_NUM`                       |Keypad Num Lock and Clear              |✔            |✔            |✔                |
 |`KC_KP_SLASH`           |`KC_PSLS`                      |Keypad `/`                             |✔            |✔            |✔                |
 |`KC_KP_ASTERISK`        |`KC_PAST`                      |Keypad `*`                             |✔            |✔            |✔                |
@@ -208,12 +206,12 @@ See also: [Basic Keycodes](keycodes_basic.md)
 |`KC_BRIGHTNESS_UP`      |`KC_BRIU`                      |Brightness Up                          |✔            |✔            |✔                |
 |`KC_BRIGHTNESS_DOWN`    |`KC_BRID`                      |Brightness Down                        |✔            |✔            |✔                |
 
-<sup>1. The Linux kernel HID driver recognizes [nearly all keycodes](https://github.com/torvalds/linux/blob/master/drivers/hid/hid-input.c), but the default bindings depend on the DE/WM.</sup><br/>
-<sup>2. Treated as F13-F15.</sup><br/>
-<sup>3. Must be held for about three seconds, and will display a prompt instead.</sup><br/>
-<sup>4. Holding Shift+Option allows for finer control of volume level.</sup><br/>
-<sup>5. Skips the entire track in iTunes when tapped, seeks within the current track when held.</sup><br/>
-<sup>6. WMP does not recognize the Rewind key, but both alter playback speed in VLC.</sup>
+<sup>1. The Linux kernel HID driver는  [대부분의 키코드]를 인식하지만(https://github.com/torvalds/linux/blob/master/drivers/hid/hid-input.c), 기본 바인딩은 DE/WM에 의존합니다.</sup><br/>
+<sup>2. F13-F15로 취급됩니다.</sup><br/>
+<sup>3. 3초동안 누르고 있으면 프롬프트창을 표시합니다.</sup><br/>
+<sup>4. Holding Shift+Option allows for finer control of volume level.Shift+Option을 누르면 보다 섬세한 볼륨 조절을 할 수 있습니다.</sup><br/>
+<sup>5. 탭할 경우 iTunes의 전체 트랙을 스킵하고, 누르고 있을 경우 트랙 안을 이동합니다. </sup><br/>
+<sup>6. WMP는 되감기 키를 인식하지 않지만, VLC에서 플레이 속도를 조절합니다.</sup>
 
 ## Quantum Keycodes :id=quantum-keycodes
 
